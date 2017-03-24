@@ -39,7 +39,7 @@
 <?php $this->stop('main_content')?>
 <script src="Js/scriptJS.js"></script>
 <script>
-				$(function(){ // équivalent $(document).ready(function(){
+				$(function() { 
 				addArticle();
 			});
 </script>

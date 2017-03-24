@@ -5,9 +5,9 @@ html, body {
 }
 .page {
 	background-image: url("Underworld-Blood-Wars-Kate-Beckinsale-as-Selene.jpg");
-	background-repeat:repeat;
+	background-repeat:no-repeat;
 	background-size:cover;
-	height: 200vh;
+	height: 100vh;
 }
 .list {
 	font-size: 15px;
