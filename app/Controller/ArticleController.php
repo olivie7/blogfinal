@@ -7,9 +7,36 @@ use \Model\ArticlesModel;
 class ArticleController extends Controller
 {
 
-	public function AddArticles()
+	
+	public function ListArticles($orderBy = 'id', $orderDir = 'ASC')
 	{
-				//traiter le formulaire contact ici...
+
+	$listarticle = new ArticlesModel();
+	$arti = $listarticle->findAll();
+	$params = [
+			'article' => $arti
+		];
+		
+		$this->show('article/listArticles', $params);
+	
+	}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	 public function ViewArticle($id)
+    {
+        $view   = new ArticlesModel();
+        $art    = $view->find($id);
+        $params = [
+            'added_article' => $art,
+        ];
+        //affiche un template
+        $this->show('article/viewArticle', $params);
+    }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ public function AjaxArticles() 
+ {
+    	//traiter le formulaire contact ici...
 $maxSize = (1024 * 1000) * 2; // Taille maximum du fichier
 $uploadDir = 'uploads/'; // Répertoire d'upload
 $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
@@ -32,7 +59,7 @@ if(!empty($_POST)){
 		$errors[] = 'L\' article doit contenir au moins 20 caractères';
 	}
 	
-
+///////////////////////////////////////////////////////////////////
 	// si le fichier image est défini et ne comporte pas d'erreur
 	if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0){
 
@@ -73,6 +100,7 @@ if(!empty($_POST)){
 					// colonne sql => valeur à insérer
 		'title'		=> $post['title'],
 		'content'	=> $post['content'],
+		'picture' => $newPictureName
 		];
 
 		$article = new ArticlesModel();
@@ -89,24 +117,11 @@ if(!empty($_POST)){
 		'errors'  => $errors,
 	];
 
-$this->show('article/addArticles', $params);
+$this->show('article/ajaxArticles', $params);
 
 	}
-
-	public function ListArticles($orderBy = 'id', $orderDir = 'ASC')
-	{
-
-	$listarticle = new ArticlesModel();
-	$arti = $listarticle->findAll();
-	$params = [
-			'article' => $arti
-		];
-		
-		$this->show('article/listArticles', $params);
-	
-	}
-
-
-
-
 }
+    
+
+
+
