@@ -21,22 +21,22 @@ class ArticleController extends Controller
 	
 	}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	 public function ViewArticle($id)
-    {
-        $view   = new ArticlesModel();
-        $art    = $view->find($id);
-        $params = [
-            'added_article' => $art,
-        ];
-        //affiche un template
-        $this->show('article/viewArticle', $params);
-    }
+	public function ViewArticle($id)
+	{
+				$view   = new ArticlesModel();
+				$art    = $view->find($id);
+				$params = [
+						'added_article' => $art,
+				];
+				//affiche un template
+				$this->show('article/viewArticle', $params);
+	}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
  public function AjaxArticles() 
  {
-    	//traiter le formulaire contact ici...
+			//traiter le formulaire contact ici...
 $maxSize = (1024 * 1000) * 2; // Taille maximum du fichier
 $uploadDir = 'uploads/'; // Répertoire d'upload
 $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'];
@@ -121,7 +121,7 @@ $this->show('article/ajaxArticles', $params);
 
 	}
 }
-    
+		
 
 
 

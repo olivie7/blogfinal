@@ -21,6 +21,11 @@ html, body {
 .container {
 	/*margin: 0px;*/
 }
+.well {
+	width: 750px;
+	background-color: transparent;
+
+}
 
 a {
 	text-decoration: none;

@@ -6,4 +6,5 @@
 		['GET|POST', '/article/listArticles', 'Article#listArticles', 'article_listArticles'],
 		['GET|POST', '/article/viewArticle/[i:id]', 'Article#ViewArticle', 'article_viewArticle'],
 		['GET|POST', '/users/loginUser', 'User#loginUser', 'user_loginUser'],
+		['GET|POST', '/users/authUser', 'User#authUser', 'user_authUser'],
 	);
