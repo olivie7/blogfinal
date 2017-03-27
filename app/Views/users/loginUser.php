@@ -1,9 +1,18 @@
 <?php $this->layout('layout',['title' => 'Veuillez vous connecter']); ?>
 
 <?php $this->start('main_content') ?>
-
+	
 	<h2></h2>
+	<?php if ($success == true): // La variable $success est envoyé via le controller?>
+				<p style="color:green">Bravo, vous etes bien connecté</p>
+			<?php endif;?>
 
+	<?php if (!empty($err)): // La variable $errors est envoyé via le controller?>
+				<p style="color:red"><?=implode('<br>', $err);?></p>
+			<?php endif;?>
+
+			<div id="result"><?php  ?></div>
+		
 	<form method="POST" class="form-horizontal">
 				<div class="form-group">
 					<label for="ident">Identifiant</label>

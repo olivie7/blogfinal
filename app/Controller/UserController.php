@@ -3,46 +3,19 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \Model\UsersModel;
+use \W\Security\AuthentificationModel;
+
+
+
 
 class UserController extends Controller
 {
 
-	public function loginUser()
-	{
-		//traiter le formulaire contact ici...
-		$err     = array();
-		$display = true;
-
-		if (!empty($_POST)) {
-
-			foreach ($_POST as $key => $value) {
-				$post[$key] = trim(strip_tags($value));
-			}
-
-			if (!filter_var($post['ident'], FILTER_VALIDATE_EMAIL)) {
-				$err[] = 'Veuillez saisir votre identifiant';
-			}
-
-			if (empty($post['passwd'])) {
-				$err[] = 'Veuillez saisir votre mot de passe';
-			}
-
-			if (count($err) > 0) {
-				$formError = true;
-			} else {
-				$User = new UsersModel();
-				$User->isValidLoginInfo($post['ident'], $post['passwd']); 
-				$success = true;
-			}
-		}
-		$this->show('users/loginUser');
-	}
-//////////////////////////////////////////////////////
-	
-	public function authUser()
+	public function authUser1()
 	{
 		$error = array(); 
 		$post = array();
+		$success = false;
 
 		if(!empty($_POST))
 		{
@@ -66,7 +39,7 @@ class UserController extends Controller
 				$error[] = 'L\'adresse email est invalide';
 			}
 
-			if(strlen($post['password']) < 8 || strlen($post['password']) > 20)
+			if(strlen($post['password']) < 3|| strlen($post['password']) > 20)
 			{
 				$error[] = 'Le mot de passe doit comporter entre 8 et 20 caractères maximum';
 			}  else {
@@ -92,7 +65,73 @@ class UserController extends Controller
 			}
 
 		}
-		$this->show('users/authUser');
+		$params = [
+
+		'success' => $success,
+		'error'  => $error,
+		];
+		$this->show('users/authUser',$params);
 	}
+
+
+
+
+	public function loginUser()
+	{
+		//traiter le formulaire contact ici...
+		$err     = [];
+		$success = false;
+		$post = [];
+		
+
+		if (!empty($_POST)) {
+
+			foreach ($_POST as $key => $value) {
+				$post[$key] = trim(strip_tags($value));
+			}
+
+			if (!filter_var($post['ident'], FILTER_VALIDATE_EMAIL)) {
+				$err[] = 'Veuillez saisir votre identifiant';
+			}
+
+			if (empty($post['passwd'])) {
+
+				$err[] = 'Veuillez saisir votre mot de passe';
+			}
+
+			if (count($err) === 0) {
+				
+				$User = new AuthentificationModel();
+				if($User->isValidLoginInfo($post['ident'], $post['passwd'])){ 
+					$success = true;
+					
+
+				} else {
+					echo"vous n'etes pas connecte";
+				}
+			} 
+		}
+		$params = [
+
+		'success' => $success,
+		'err'  => $err,
+		];
+		$this->show('users/loginUser', $params);
+
+	}
+
+
+	
+	public function Useredirect() {
+		if (!empty($_POST)) {
+	//redirige vers une autre page interne
+			$this->redirectToRoute('article_ajaxArticles');
+		}
+	}
+
+
+
+
+	
 
 }
