@@ -50,6 +50,7 @@ class UserController extends Controller
                 ];
                 $User = new UsersModel();
                 $User->insert($datas);
+                $this->flash('Bonjour vous etes bien inscrit', 'info');
             }
         }
         $params = [
@@ -60,6 +61,8 @@ class UserController extends Controller
         $this->show('users/authUser', $params);
     }
 
+
+////////////////////////////////////////////////////////////////////////////////
     public function loginUser()
     {
         //traiter le formulaire contact ici...
@@ -91,7 +94,10 @@ class UserController extends Controller
                     $ident   = new UsersModel();
                     $tmpUser = $ident->find($id);
                     $User->logUserIn($tmpUser);
-                    $this->redirectToRoute('article_ajaxArticles');
+                    $success = true;
+                    $this->flash('Vous etes bien connecté','info');
+
+                    //$this->redirectToRoute('article_ajaxArticles');
                 } else {
                     $err[] = "Vous n'etes pas identifié";
                 }
@@ -100,7 +106,6 @@ class UserController extends Controller
         $params = [
             'success' => $success,
             'err'     => $err,
-
         ];
         $this->show('users/loginUser', $params);
     }

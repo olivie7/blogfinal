@@ -4,10 +4,10 @@
 	
 	<h2></h2>
 	<?php if ($success == true): // La variable $success est envoyé via le controller?>
-				<p style="color:green">Bravo, vous etes bien connecté</p>
+				<p style="color:green"><strong><?php echo $w_flash_message->message; ?></strong></p>
 			<?php endif;?>
 
-	<?php if (!empty($err)): // La variable $errors est envoyé via le controller?>
+	<?php if (!empty($err)): // La variable $err est envoyé via le controller?>
 				<p style="color:red"><?=implode('<br>', $err);?></p>
 			<?php endif;?>
 
