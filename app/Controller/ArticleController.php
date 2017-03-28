@@ -23,6 +23,7 @@ class ArticleController extends Controller
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public function ViewArticle($id)
 	{
+		
 				$view   = new ArticlesModel();
 				$art    = $view->find($id);
 				$params = [
@@ -115,11 +116,15 @@ if(!empty($_POST)){
 		'hello'	  => 'bonjour prénom',
 		'success' => $success,
 		'errors'  => $errors,
+		
 	];
 
 $this->show('article/ajaxArticles', $params);
 
 	}
+
+
+
 }
 		
 

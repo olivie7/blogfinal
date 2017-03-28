@@ -1,9 +1,9 @@
 $(function(){ // équivalent $(document).ready(function(){
-function addArticle(){
+function addform(){
 // Pour l'ajout d'un utilisateur
 	$('#submitForm').click(function(el){
 		el.preventDefault(); // On bloque l'action par défaut
-		var form_article = $('#addArticle'); // On récupère le formulaire
+		var form_article = $('#add'); // On récupère le formulaire
 		$.ajax({
 			method: 'post',
 			url:  form_article.attr('action'),
