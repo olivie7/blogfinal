@@ -41,14 +41,14 @@ class CommentController extends Controller
         }
        
     }
-
-    public function listAllCommentsOfArticle() {
+/////////////////////////////////////////////////////////////////////////////
+    public function () {
     	$listAll = new CommentsModel();
-    	$viewComment = $listAll->findAll();
+    	$viewComment = $listAll->findAll($idarticle ,$orderBy = '', $orderDir = 'ASC', $limit = null, $offset = null);
     	$params = [
 			'commentaire' => $viewComment,
 		];
 		
-		$this->show('comment/addcomment', $params);
+		$this->show('comment/listAllCommentsOfArticle', $params);
     }
 }
