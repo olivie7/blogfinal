@@ -30,7 +30,7 @@ $this->start('main_content'); ?>
 						</a>
 					</td>
 					<td>
-						<a href="admin/modif_recipe.php?id=<?=$recipe['rid']; ?>"><button type="button" class="btn btn-info btn-sm">
+						<a href="admin/modif_recipe.php?id=<?=$recipe['id']; ?>"><button type="button" class="btn btn-info btn-sm">
 							<span class="glyphicon glyphicon-edit"></span> Modifier
 						</button>
 					</a>

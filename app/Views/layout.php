@@ -31,7 +31,7 @@
 		<li><a href="<?= $this->url('article_ajaxArticles') ?>">Ajouter article</a></li>
 		<li><a href="<?= $this->url('article_listArticles') ?>">Liste d'Articles</a></li>
 		<li><a href="<?= $this->url('user_loginUser') ?>">Connectez-vous !!!</a></li>
-		<li><a href="<?= $this->url('ok') ?>">Inscrivez-vous !!!</a></li>
+		<li><a href="<?= $this->url('user_authUser') ?>">Inscrivez-vous !!!</a></li>
 		<!--<li><a href="list_recipes.php">Liste de recette</a></li>-->
 	</ul>
 </nav>

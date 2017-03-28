@@ -3,6 +3,7 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \Model\ArticlesModel;
+use \Model\CommentsModel;
 
 class ArticleController extends Controller
 {
@@ -11,32 +12,38 @@ class ArticleController extends Controller
 	public function ListArticles($orderBy = 'id', $orderDir = 'ASC')
 	{
 
-	$listarticle = new ArticlesModel();
-	$arti = $listarticle->findAll();
-	$params = [
-			'article' => $arti
+		$listarticle = new ArticlesModel();
+		$arti = $listarticle->findAll();
+		$params = [
+		'article' => $arti
 		];
 		
 		$this->show('article/listArticles', $params);
-	
+
 	}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public function ViewArticle($id)
 	{
 		
-				$view   = new ArticlesModel();
-				$art    = $view->find($id);
-				$params = [
-						'added_article' => $art,
-				];
+		$view   = new ArticlesModel();
+		$art    = $view->find($id);
+		
+		$listAll = new CommentsModel();
+		$arti = $id;
+		$viewComment = $listAll->findAllcomment($arti);
+
+		$params = [
+		'added_article' => $art,
+		'commentos' => $viewComment,
+		];
 				//affiche un template
-				$this->show('article/viewArticle', $params);
+		$this->show('article/viewArticle', $params);
 	}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
- public function AjaxArticles() 
- {
+	public function AjaxArticles() 
+	{
 			//traiter le formulaire contact ici...
 $maxSize = (1024 * 1000) * 2; // Taille maximum du fichier
 $uploadDir = 'uploads/'; // Répertoire d'upload
@@ -112,21 +119,21 @@ if(!empty($_POST)){
 	}
 	
 }
-	$params = [
-		'hello'	  => 'bonjour prénom',
-		'success' => $success,
-		'errors'  => $errors,
-		
-	];
+$params = [
+'hello'	  => 'bonjour prénom',
+'success' => $success,
+'errors'  => $errors,
+
+];
 
 $this->show('article/ajaxArticles', $params);
 
-	}
+}
 
 
 
 }
-		
+
 
 
 

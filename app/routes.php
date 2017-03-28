@@ -13,6 +13,8 @@
 
 		['GET|POST', '/users/connexion', 'User#authUser1', 'user_authUser'],		
 		
-		['GET|POST', '/article/ViewArticle/', 'Comment#addComment', 'comment_addcomment'],		
+		['GET|POST', '/article/ViewArticle', 'Comment#addComment', 'comment_addcomment'],		
+		
+		['GET|POST', '/article/ViewArticle', 'Comment#listAllCommentsOfArticle', 'comment_listAllCommentsOfArticle'],		
 
 	);

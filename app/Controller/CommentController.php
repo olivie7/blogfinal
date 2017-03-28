@@ -1,8 +1,9 @@
 <?php
 namespace Controller;
 
-use \Model\CommentsModel;
+
 use \W\Controller\Controller;
+use \Model\CommentsModel;
 
 
 
@@ -17,7 +18,7 @@ class CommentController extends Controller
         if (!empty($_POST)) {
             foreach ($_POST as $key => $value) {
                 $post[$key] = trim(strip_tags($value));
-                var_dump($post);             }
+                          }
 
             if (strlen($post['comment']) < 3) {
                 $error[] = 'Le commentaire doit faire au moins 3 caractères';
@@ -33,22 +34,19 @@ class CommentController extends Controller
                     'id_article' => $post['id'],
                     
                 ];
-                $comment = new CommentsModel();
-                $comment->insert($datas);
+                $comment1 = new CommentsModel();
+                $comment1->insert($datas);
+                
+
 
             }
 
         }
+        $this->redirectToRoute('article_listArticles');
        
     }
+
+
 /////////////////////////////////////////////////////////////////////////////
-    public function () {
-    	$listAll = new CommentsModel();
-    	$viewComment = $listAll->findAll($idarticle ,$orderBy = '', $orderDir = 'ASC', $limit = null, $offset = null);
-    	$params = [
-			'commentaire' => $viewComment,
-		];
-		
-		$this->show('comment/listAllCommentsOfArticle', $params);
-    }
+   
 }
