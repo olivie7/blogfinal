@@ -16,5 +16,7 @@
 		['GET|POST', '/article/ViewArticle', 'Comment#addComment', 'comment_addcomment'],		
 		
 		['GET|POST', '/article/ViewArticle', 'Comment#listAllCommentsOfArticle', 'comment_listAllCommentsOfArticle'],		
+		
+		['GET|POST', '/mailsend', 'Email#sendmail', 'email_sendmail'],		
 
 	);
