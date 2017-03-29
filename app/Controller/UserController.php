@@ -97,7 +97,7 @@ class UserController extends Controller
                     $success = true;
                     $this->flash('Vous etes bien connecté','info');
 
-                    //$this->redirectToRoute('article_ajaxArticles');
+                    $this->redirectToRoute('article_ajaxArticles');
                 } else {
                     $err[] = "Vous n'etes pas identifié";
                 }
