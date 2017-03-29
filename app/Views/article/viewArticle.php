@@ -63,6 +63,7 @@ $this->layout('layout', ['title' => 'Listposts'])
 		Aucun commentaire trouvé !
 	<?php endif;?>
 </div>
+<script src="../../assets/Js/modal.js"></script>
 <?php $this->stop('main_content')?>
 
 <script src="Js/scriptJS.js"></script>
