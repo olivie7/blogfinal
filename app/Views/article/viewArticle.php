@@ -15,9 +15,11 @@ $this->layout('layout', ['title' => 'Listposts'])
 
 		<h2 class="list"><?php echo $added_article['title']; ?></h2>
 
-		<p class="list"><?php echo nl2br($added_article['content']); ?></p>
+		<p class="list content"><?php echo nl2br($added_article['content']); ?></p>
 		<!-- on affiche l'image récupérée dans notre tableau added_recipe avec les données récupérées dans la table, à défaut on affiche le nom d'article récupérée dans la table -->
-		<img class="card-img" id="myImg" src="../../uploads/<?=$added_article['picture'];?>" alt="<?php echo $added_article['title']; ?>">
+		<div class="polaroid">
+		<img id="myImg" src="../../uploads/<?=$added_article['picture'];?>" alt="<?php echo $added_article['title']; ?>">
+		</div>
 		<!-- The Modal -->
 		<div id="myModal" class="modal">
 			<span class="close">×</span>

@@ -25,7 +25,7 @@ html, body {
 	border-radius: 0px;
 }
 .list {
-	font-size: 15px;
+	font-size: 17px;
 }
 .page {
 	/*background-image: url("Underworld-Blood-Wars-Kate-Beckinsale-as-Selene.jpg");
@@ -44,10 +44,11 @@ html, body {
 
 /*********************************************************************************************************/
 
-
 #myImg {
-cursor: pointer;
-    transition: 0.3s;
+	cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
 }
 
 #myImg:hover {opacity: 0.7;}
@@ -72,7 +73,7 @@ cursor: pointer;
     margin: auto;
     display: block;
     width: 80%;
-    max-width: 1200px;
+    max-width: 700px;
 }
 
 /* Caption of Modal Image */
@@ -131,4 +132,7 @@ cursor: pointer;
 }
 .input-group {
 	z-index: 0;
+}
+.content {
+	width: 800px;
 }
