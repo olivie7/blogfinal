@@ -28,7 +28,7 @@
 
 				<div class="form-group text-center">
 					<input type="submit" value="Se connecter" class="btn btn-default">
-					<a href="psw_recorver.php" class="btn btn-info">Mot de passe oublié</a>
+					<a href="<?php echo $this->url("psw_returnPsw"); ?>" class="btn btn-info">Mot de passe oublié</a>
 				</div>
 			</form>
 <?php $this->stop('main_content')?>

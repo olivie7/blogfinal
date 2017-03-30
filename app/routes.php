@@ -18,5 +18,8 @@
 		['GET|POST', '/article/ViewArticle', 'Comment#listAllCommentsOfArticle', 'comment_listAllCommentsOfArticle'],		
 		
 		['GET|POST', '/mailsend', 'Email#sendmail', 'email_sendmail'],		
+		
+		['GET|POST', '/retrouverMotDePasse', 'Psw#returnPsw', 'psw_returnPsw'],		
+		['GET|POST', '/VeuillezTapezVotreMDP', 'Repsw#newpsw', 'repsw_newpsw'],		
 
 	);

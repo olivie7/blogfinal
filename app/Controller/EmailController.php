@@ -2,23 +2,24 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use \W\Security\StringsUtils as token;
-
 
 class EmailController extends Controller
 {
+
     public function sendmail()
     {
+        $body = $this->generateUrl('repsw_newpsw');
+      
 /**
  * This example shows making an SMTP connection with authentication.
  */
 //SMTP needs accurate times, and the PHP time zone MUST be set
         //This should be done in your php.ini, but this is how to do it if you don't have access to that
         date_default_timezone_set('Etc/UTC');
-        
+
         //require 'PHPMailerAutoload.php';
         //require_once 'class.phpmailer.php';
-//Create a new PHPMailer instance
+        //Create a new PHPMailer instance
         $mail = new \PHPMailer;
 //Tell PHPMailer to use SMTP
         $mail->isSMTP();
@@ -44,20 +45,20 @@ class EmailController extends Controller
 //Set an alternative reply-to address
         $mail->addReplyTo('replyto@example.com', 'First Last');
 //Set who the message is to be sent to
-        $mail->addAddress('whoto@example.com', 'John Doe');
+        $mail->addAddress($_POST['email'], 'John Doe');
 //Set the subject line
         $mail->Subject = 'PHPMailer SMTP test';
 //Read an HTML message body from an external file, convert referenced images to embedded,
         //convert HTML into a basic plain-text alternative body
         //$mail->msgHTML(file_get_contents('contents.html'), dirname(__FILE__));
-        $mail->Body = "je pense que c'est passe si je lis sa";
+        $mail->Body = $body;
 //Replace the plain text body with one created manually
         $mail->AltBody = 'This is a plain-text message body';
 //Attach an image file
         //$mail->addAttachment('images/phpmailer_mini.png');
-//send the message, check for errors
+        //send the message, check for errors
         if (!$mail->send()) {
-        	echo "tu n'as pas reussi";
+            echo "tu n'as pas reussi";
             //echo "Mailer Error: " . $mail->ErrorInfo;
         } else {
             echo "Message sent!";
