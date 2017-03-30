@@ -23,7 +23,7 @@ $this->start('main_content'); ?>
 				<tr>
 					<td class="list"><?=$recipe['title']; ?></td>
 					<td class="list"><?=$recipe['content']; ?></td>
-					<td class="list"><img src="../uploads/<?=$recipe['picture']; ?>"></td>
+					<td class="list"><img style="width: 350px" src="../uploads/<?=$recipe['picture']; ?>"></td>
 					<td>
 						<a href="<?= $this->url('article_viewArticle',["id" => $recipe['id']]) ?>"><button type="button" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span>
 							Visualiser cet article</button>
