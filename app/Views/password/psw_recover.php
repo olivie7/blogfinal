@@ -31,6 +31,6 @@
 				endif;
 			?>
 		</div>
-	</main>
+
 	<?php // require_once '../inc/script.php'; ?>
 	<?php $this->stop('main_content')?>

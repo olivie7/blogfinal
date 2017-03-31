@@ -2,14 +2,18 @@
 namespace Controller;
 
 use \W\Controller\Controller;
+use \Model\ResetPasswordModel;
 
 class EmailController extends Controller
 {
 
-    public function sendmail()
+    public function sendmail($tokenfinal)
     {
-        $body = $this->generateUrl('repsw_newpsw');
-      
+        
+
+        $body = 'Cliquez <a href="http://localhost/blogfinal/public/VeuillezTapezVotreMDP?token=' . $tokenfinal . '">Ici</a> pour reinitialiser votre mot de passe';
+         //var_dump($tokenfinal);
+
 /**
  * This example shows making an SMTP connection with authentication.
  */
@@ -27,7 +31,7 @@ class EmailController extends Controller
         // 0 = off (for production use)
         // 1 = client messages
         // 2 = client and server messages
-        $mail->SMTPDebug = 2;
+        $mail->SMTPDebug = 1;
 //Ask for HTML-friendly debug output
         $mail->Debugoutput = 'html';
 //Set the hostname of the mail server

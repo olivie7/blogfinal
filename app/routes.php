@@ -20,6 +20,7 @@
 		['GET|POST', '/mailsend', 'Email#sendmail', 'email_sendmail'],		
 		
 		['GET|POST', '/retrouverMotDePasse', 'Psw#returnPsw', 'psw_returnPsw'],		
-		['GET|POST', '/VeuillezTapezVotreMDP', 'Repsw#newpsw', 'repsw_newpsw'],		
+		
+		['GET|POST', '/VeuillezTapezVotreMDP', 'Psw#newpsw', 'psw_newpsw'],		
 
 	);

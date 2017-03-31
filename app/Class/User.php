@@ -33,7 +33,7 @@ class User
      *
      * @return self
      */
-    private function _setFirstname('olivier')
+    private function _setFirstname($olivier)
     {
         $this->firstname = $firstname;
 
