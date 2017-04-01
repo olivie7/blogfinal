@@ -42,7 +42,7 @@ class CommentController extends Controller
             }
 
         }
-        $this->redirectToRoute('article_listArticles');
+        $this->redirectToRoute('article_viewArticle');
        
     }
 

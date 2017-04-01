@@ -44,7 +44,7 @@ class PswController extends Controller
 
                         $envmail = new EmailController();
                         $email   = $envmail->sendmail($tokenfinal);
-                        $success1 = 'Un lien de réinitialisation vous a été envoyé, verifiez votre boîte mail !<br> Vous pouvez fermer cette page !<br> Cliquez <a href="http://localhost/blogfinal/public/VeuillezVousConnecter">Ici</a> pour vous connecter';
+                        $success1 = 'Un lien de réinitialisation vous a été envoyé, verifiez votre boîte mail !<br> Vous pouvez fermer cette page !<br> <a href="http://localhost/blogfinal/public/VeuillezVousConnecter">Cliquez Ici pour vous connecter</a>';
                     }//else {
                         //$errorsText = implode('<br>', $error); 
                    // } 
