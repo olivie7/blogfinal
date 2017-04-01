@@ -9,7 +9,7 @@
 		
 		['GET|POST', '/article/ViewArticle/[i:id]', 'Article#ViewArticle', 'article_viewArticle'],
 		
-		['GET|POST', '/users/loginUser', 'User#loginUser', 'user_loginUser'],
+		['GET|POST', '/VeuillezVousConnecter', 'User#loginUser', 'login'],
 
 		['GET|POST', '/users/connexion', 'User#authUser1', 'user_authUser'],		
 		

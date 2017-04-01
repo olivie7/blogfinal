@@ -12,9 +12,9 @@
 				<legend>Récupération du mot de passe</legend>
 
 				<?php 	
-					if(isset($error))
+					if(isset($errorText))
 					{
-						echo '<p class="text-danger">'.$error.'</p>';
+						echo '<p class="text-danger">'.$errorText.'</p>';
 					}
 				 ?>
 
