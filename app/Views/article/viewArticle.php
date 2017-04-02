@@ -33,13 +33,14 @@ $this->layout('layout', ['title' => 'Listposts'])
 		<form action="<?=$this->url('comment_addcomment');?>" id="add" method="post" accept-charset="utf-8">
 			
 			<input type="hidden" name="id" value="<?=$added_article['id'];?>">
-
-			<!--Pseudo-->
-			<div class="form-group">
-				<div class="col-md-6 inputGroupContainer">
-					<label class="control-label">Pseudo :</label>
-					<div  style="margin-bottom: 20px" class="input-group">
-						<input type="text" name="pseudo" id="pseudo" /><br />
+			<div class="row">
+				<!--Pseudo-->
+				<div class="form-group col-xs-12">
+					<div class="col-md-6 inputGroupContainer">
+						<label class="control-label">Pseudo :</label>
+						<div  style="margin-bottom: 20px" class="input-group">
+							<input type="text" name="pseudo" id="pseudo" /><br />
+						</div>
 					</div>
 				</div>
 			</div>
@@ -55,7 +56,7 @@ $this->layout('layout', ['title' => 'Listposts'])
 
 
 			<!-- Text area -->
-			<div class="form-group">
+			<div class="form-group col-xs-12">
 				<div class="col-md-6 inputGroupContainer">
 					<label class="control-label">Commentaire</label>
 					<div  style="margin-bottom: 20px" class="input-group">
@@ -66,7 +67,7 @@ $this->layout('layout', ['title' => 'Listposts'])
 			</div>
 
 			<!-- Button -->
-			<div class="form-group">
+			<div class="form-group col-xs-12">
 				<div style="margin-bottom: 20px" class="col-md-12 inputGroupContainer">
 					<button type="submit" id="submitForm" class="btn btn-warning" >Envoyer <span class="glyphicon glyphicon-send"></span></button>
 				</div>
@@ -74,21 +75,21 @@ $this->layout('layout', ['title' => 'Listposts'])
 
 		</form>
 
-
-		<div id="messages">
-			<!-- les commentaires-->
-			<?php if (!empty($commentos)): ?>
-				<?php foreach ($commentos as $commentaires): ?>
-					<p class="list"><?php echo $commentaires['pseudo']; ?></p>
-					<p class="list"><?php echo nl2br($commentaires['content']); ?></p>
-					<legend class="nameForm"></legend>
-				<?php endforeach;?>
-			</div>
-		<?php else: ?>
-			Aucun commentaire trouvé !
-		<?php endif;?>
-	</div>
-
+		<div class="row col-xs-12"">
+			<div id="messages">
+				<!-- les commentaires-->
+				<?php if (!empty($commentos)): ?>
+					<?php foreach ($commentos as $commentaires): ?>
+						<p class="list"><?php echo $commentaires['pseudo']; ?></p>
+						<p class="list"><?php echo nl2br($commentaires['content']); ?></p>
+						<legend class="nameForm"></legend>
+					<?php endforeach;?>
+				</div>
+			<?php else: ?>
+				Aucun commentaire trouvé !
+			<?php endif;?>
+		</div>
+</div>
 	
 
 
@@ -96,9 +97,7 @@ $this->layout('layout', ['title' => 'Listposts'])
 <?php else: ?>
 	Aucune recette trouvée !
 <?php endif;?>
-<div class="row">
 
-</div>
 <script src="../../assets/Js/modal.js"></script>
 <?php $this->stop('main_content')?>
 
@@ -106,7 +105,7 @@ $this->layout('layout', ['title' => 'Listposts'])
 <script>
 	$(function() {
 		addform();
-		charger();
+		
 	});
 
 </script>

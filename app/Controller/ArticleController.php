@@ -26,7 +26,7 @@ class ArticleController extends Controller
 	public function ViewArticle($id)
 	{
 		$success = false;
-		$error =[];
+		$error =[]; 
 		
 		if(!empty($w_user))
 		{

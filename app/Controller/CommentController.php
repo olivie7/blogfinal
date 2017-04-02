@@ -47,10 +47,17 @@ class CommentController extends Controller
                 $comment1 = new CommentsModel();
                 $comment1->insert($datas);
                 $success = true;
+                
             }
 
         }
-        
+        $params =[
+        "success" => $success,
+        "errorsText" => $errorsText,
+        "error" => $error,
+        "successComment" => $successComment,
+        ];
+        $this->show('article/viewArticle', $params);
 
     }
 
