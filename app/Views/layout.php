@@ -32,7 +32,6 @@
 		<li><a href="<?= $this->url('article_listArticles') ?>">Liste d'Articles</a></li>
 		<li><a href="<?= $this->url('login') ?>">Connectez-vous !!!</a></li>
 		<li><a href="<?= $this->url('user_authUser') ?>">Inscrivez-vous !!!</a></li>
-		<!--<li><a href="list_recipes.php">Liste de recette</a></li>-->
 	</ul>
 </nav>
 

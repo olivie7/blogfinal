@@ -4,6 +4,7 @@ namespace Controller;
 use \W\Controller\Controller;
 use \Model\ArticlesModel;
 use \Model\CommentsModel;
+use \W\Security\AuthorizationModel;
 
 class ArticleController extends Controller
 {
@@ -24,6 +25,14 @@ class ArticleController extends Controller
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public function ViewArticle($id)
 	{
+		$success = false;
+		$error =[];
+		
+		if(!empty($w_user))
+		{
+			$redirect = new AuthorizationModel();
+			die($redirect->redirectToLogin());
+		}
 		
 		$view   = new ArticlesModel();
 		$art    = $view->find($id);
@@ -35,6 +44,9 @@ class ArticleController extends Controller
 		$params = [
 		'added_article' => $art,
 		'commentos' => $viewComment,
+		"success" => $success,
+		"error" => $error,
+
 		];
 				//affiche un template
 		$this->show('article/viewArticle', $params);

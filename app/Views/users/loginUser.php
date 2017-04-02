@@ -11,7 +11,7 @@
 						<p style="color:red"><?=implode('<br>', $err);?></p>
 					<?php endif;?>
 
-			<div id="result"><?php ?></div>
+			<div id="result"><?php var_dump($w_user	) ?></div>
 
 			<form method="POST" class="form-horizontal">
 				<div class="form-group">
