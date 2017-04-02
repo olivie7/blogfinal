@@ -4,7 +4,7 @@ namespace Model;
 class CommentsModel extends \W\Model\Model 
 {
 
-	public function findAllcomment($arti , $orderBy = '', $orderDir = 'ASC', $limit = null, $offset = null)
+	public function findAllcomment($arti , $orderBy = 'id', $orderDir = 'ASC', $limit = null, $offset = null)
 	{
 
 		$sql = 'SELECT * FROM ' . $this->table .  ' WHERE id_article = :id_article';

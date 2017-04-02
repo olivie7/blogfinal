@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 //hérite du fichier layout.php à la racine de app/Views/
 $this->layout('layout', ['title' => 'Voici vos Articles']); ?>
 

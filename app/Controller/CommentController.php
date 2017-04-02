@@ -51,13 +51,8 @@ class CommentController extends Controller
             }
 
         }
-        $params =[
-        "success" => $success,
-        "errorsText" => $errorsText,
-        "error" => $error,
-        "successComment" => $successComment,
-        ];
-        $this->show('article/viewArticle', $params);
+        
+        $this->redirectToRoute('article_viewArticle', ["id" => $post['id']]);
 
     }
 

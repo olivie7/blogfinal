@@ -6,7 +6,7 @@ use \Model\ArticlesModel;
 use \Model\CommentsModel;
 use \W\Security\AuthorizationModel;
 
-class ArticleController extends Controller
+class ArticleController extends \W\Controller\Controller
 {
 
 	
@@ -28,11 +28,7 @@ class ArticleController extends Controller
 		$success = false;
 		$error =[]; 
 		
-		if(!empty($w_user))
-		{
-			$redirect = new AuthorizationModel();
-			die($redirect->redirectToLogin());
-		}
+		
 		
 		$view   = new ArticlesModel();
 		$art    = $view->find($id);
@@ -79,7 +75,7 @@ if(!empty($_POST)){
 		$errors[] = 'L\' article doit contenir au moins 20 caractères';
 	}
 	
-///////////////////////////////////////////////////////////////////
+             ///////////////////////////////////////////
 	// si le fichier image est défini et ne comporte pas d'erreur
 	if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0){
 

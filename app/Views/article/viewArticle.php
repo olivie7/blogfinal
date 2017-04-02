@@ -30,7 +30,7 @@ $this->layout('layout', ['title' => 'Listposts'])
 		</div>
 
 
-		<form action="<?=$this->url('comment_addcomment');?>" id="add" method="post" accept-charset="utf-8">
+		<form action="<?=$this->url('comment_addcomment');?>"  id="add" method="post" accept-charset="utf-8">
 			
 			<input type="hidden" name="id" value="<?=$added_article['id'];?>">
 			<div class="row">
@@ -69,7 +69,7 @@ $this->layout('layout', ['title' => 'Listposts'])
 			<!-- Button -->
 			<div class="form-group col-xs-12">
 				<div style="margin-bottom: 20px" class="col-md-12 inputGroupContainer">
-					<button type="submit" id="submitForm" class="btn btn-warning" >Envoyer <span class="glyphicon glyphicon-send"></span></button>
+					<button type="submit" id="submitFor" class="btn btn-warning" >Envoyer <span class="glyphicon glyphicon-send"></span></button>
 				</div>
 			</div>
 
@@ -77,35 +77,53 @@ $this->layout('layout', ['title' => 'Listposts'])
 
 		<div class="row col-xs-12"">
 			<div id="messages">
-				<!-- les commentaires-->
-				<?php if (!empty($commentos)): ?>
-					<?php foreach ($commentos as $commentaires): ?>
-						<p class="list"><?php echo $commentaires['pseudo']; ?></p>
-						<p class="list"><?php echo nl2br($commentaires['content']); ?></p>
-						<legend class="nameForm"></legend>
-					<?php endforeach;?>
+				<div id="result">
+					<!-- les commentaires-->
+					<?php //if (!empty($commentos)): ?>
+					<?php //foreach ($commentos as $commentaires): ?>
+					<p class="list"><?php //echo $commentaires['pseudo']; ?></p>
+					<p class="list"><?php //echo nl2br($commentaires['content']); ?></p>
+					<legend class="nameForm"></legend>
+					
+					<?php //endforeach;?>
 				</div>
-			<?php else: ?>
-				Aucun commentaire trouvé !
-			<?php endif;?>
+			</div>
+			<?php //else: ?>
+			<!--Aucun commentaire trouvé !-->
+			<?php //endif;?>
 		</div>
-</div>
-	
-
-
+	</div>
 
 <?php else: ?>
 	Aucune recette trouvée !
 <?php endif;?>
+<script type="text/javascript">
+	$("#submitFor").click(function(el) {
+		el.preventDefault();
+		var form_article = $('#add');
+
+		$("#result").show();
+		
+		$.ajax({
+			url :form_article.attr('action'),
+			success: function(html){
+				if(html){
+					$("#messages").append(html);               
+				}
+            //$(".load").hide();
+          } 
+        });
+	});
+</script>
 
 <script src="../../assets/Js/modal.js"></script>
 <?php $this->stop('main_content')?>
+
 
 <script src="Js/scriptJS.js"></script>
 <script>
 	$(function() {
 		addform();
-		
 	});
 
 </script>
