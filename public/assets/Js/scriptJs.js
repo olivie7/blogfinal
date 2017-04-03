@@ -2,18 +2,17 @@
 // AVANT que le DOM soit chargé
 function loadUsers(){
 	// Permet de récupérer des données au format JSON
-	$.getJSON('Controller/CommentController.php', function(resultat){
+	$.getJSON("<?=$this->url('comment_showComments') ?>", function(resultat){
 		//console.log(result); // équivalent à un var_dump()
 
 		var resHTML = '';
 
 		$.each(resultat, function(key, value){
 			resHTML+= '<tr>';
-			resHTML+= '<td>'+value.id+'</td>';
-			resHTML+= '<td>'+value.firstname+'</td>';
-			resHTML+= '<td>'+value.lastname+'</td>';
-			resHTML+= '<td>'+value.email+'</td>';
-			resHTML+= '<td><a href="#" class="deleteUser" data-id="'+value.id+'">Supprimer</td>';
+			// resHTML+= '<td>'+value.id+'</td>';
+			resHTML+= '<td>'+value.pseudo+'</td>';
+			resHTML+= '<td>'+value.content+'</td>';
+			// resHTML+= '<td><a href="#" class="deleteUser" data-id="'+value.id+'">Supprimer</td>';
 			resHTML+= '</tr>';
 		});
 

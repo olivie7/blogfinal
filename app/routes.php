@@ -14,6 +14,7 @@
 		['GET|POST', '/users/connexion', 'User#authUser1', 'user_authUser'],		
 		
 		['GET|POST', '/article/ViewArticle', 'Comment#addComment', 'comment_addcomment'],		
+		['GET|POST', '/article/ViewArticle/[i:id]', 'Comment#showComments', 'comment_showComments'],		
 		
 		['GET|POST', '/mailsend', 'Email#sendmail', 'email_sendmail'],		
 		

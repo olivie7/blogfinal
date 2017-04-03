@@ -41,14 +41,9 @@ class CommentController extends Controller
                 ];
                 $comment1 = new CommentsModel();
                 $comment1->insert($datas);
-                $arti        = $post['id'];
-                $viewComment = $comment1->findAllcomment($arti);
-                $newView     = json_encode($viewComment);
-                $params      = [
-                    'newtab' => $niewview,
-                ];
+                $arti = $post['id'];
 
-                $this->redirectToRoute('article_viewArticle',  ["id" => $post['id']]);
+                // $this->redirectToRoute('article_viewArticle', ["id" => $post['id']]);
                 $success = true;
 
             }
@@ -60,5 +55,10 @@ class CommentController extends Controller
     }
 
 /////////////////////////////////////////////////////////////////////////////
-
+    public function showComments($id)
+    {
+        $comments    = new CommentsModel();
+        $viewComment = $comments->findAllcomment($arti);
+        echo json_encode($viewComment);
+    }
 }

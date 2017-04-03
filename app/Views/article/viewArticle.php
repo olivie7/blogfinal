@@ -78,7 +78,7 @@ $this->layout('layout', ['title' => 'Listposts'])
 		<div class="row col-xs-12"">
 			<!-- <div id="messages"> -->
 				<div id="result"></div>
-				
+
 					
 					<!-- <legend class="nameForm"></legend> -->
 					
@@ -89,7 +89,7 @@ $this->layout('layout', ['title' => 'Listposts'])
 			<!--Aucun commentaire trouvé !-->
 			<?php //endif;?>
 		</div>
-	</div>
+	
 
 <?php else: ?>
 	Aucune recette trouvée !
@@ -122,8 +122,9 @@ $this->layout('layout', ['title' => 'Listposts'])
 <script src="Js/scriptJS.js"></script>
 <script>
 	$(function() {
-		addform();
 		loadUsers();
+		addform();
+		
 	});
 
 </script>
