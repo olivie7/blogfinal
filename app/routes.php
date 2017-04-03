@@ -20,5 +20,6 @@
 		['GET|POST', '/retrouverMotDePasse', 'Psw#returnPsw', 'psw_returnPsw'],		
 		
 		['GET|POST', '/VeuillezTapezVotreMDP', 'Psw#newpsw', 'psw_newpsw'],		
+		// ['GET|POST', '/VeuillezTapezVotreMDP/[:token]', 'Psw#newpsw', 'psw_newpsw'],		
 
 	);

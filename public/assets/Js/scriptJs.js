@@ -1,7 +1,37 @@
+// On place dans une fonction qu'on peut appeler autant de fois qu'on le souhaite, 
+// AVANT que le DOM soit chargé
+function loadUsers(){
+	// Permet de récupérer des données au format JSON
+	$.getJSON('Controller/CommentController.php', function(resultat){
+		//console.log(result); // équivalent à un var_dump()
+
+		var resHTML = '';
+
+		$.each(resultat, function(key, value){
+			resHTML+= '<tr>';
+			resHTML+= '<td>'+value.id+'</td>';
+			resHTML+= '<td>'+value.firstname+'</td>';
+			resHTML+= '<td>'+value.lastname+'</td>';
+			resHTML+= '<td>'+value.email+'</td>';
+			resHTML+= '<td><a href="#" class="deleteUser" data-id="'+value.id+'">Supprimer</td>';
+			resHTML+= '</tr>';
+		});
+
+		$('#result').html(resHTML);
+	});
+}
+
+
+
+
+
+
+
 $(function(){ // équivalent $(document).ready(function(){
 
 	function addform(){
-// Pour l'ajout d'un utilisateur
+// Pour l'ajout d'un article
+
 $('#submitForm').click(function(el){
 		el.preventDefault(); // On bloque l'action par défaut
 		var form_article = $('#add'); // On récupère le formulaire
@@ -12,11 +42,12 @@ $('#submitForm').click(function(el){
 			url:  form_article.attr('action'),
 			data: form_article.serialize(), // On récupère les données à envoyer
 			success: function(resultat){
-				$('#result').html(resultat);
+				// $('#result').html(resultat);
 				form_article.find('input').val(''); // Permet de vider les champs du formulaire.. 
+				loadUsers();
 				//pseudo.find('input').val(''); // Permet de vider les champs du formulaire.. 
 				//message.find('input').val(''); // Permet de vider les champs du formulaire.. 
-				$('#messages').append("<p>" + pseudo + " dit : " + message + "</p>"); // on ajoute le message dans la zone prévue
+				// $('#messages').append("<p>" + pseudo + " dit : " + message + "</p>"); // on ajoute le message dans la zone prévue
 			}
 		});
 	});

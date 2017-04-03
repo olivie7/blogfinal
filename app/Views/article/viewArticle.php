@@ -69,25 +69,22 @@ $this->layout('layout', ['title' => 'Listposts'])
 			<!-- Button -->
 			<div class="form-group col-xs-12">
 				<div style="margin-bottom: 20px" class="col-md-12 inputGroupContainer">
-					<button type="submit" id="submitFor" class="btn btn-warning" >Envoyer <span class="glyphicon glyphicon-send"></span></button>
+					<button type="submit" id="submitForm" class="btn btn-warning" >Envoyer <span class="glyphicon glyphicon-send"></span></button>
 				</div>
 			</div>
 
 		</form>
 
 		<div class="row col-xs-12"">
-			<div id="messages">
-				<div id="result">
-					<!-- les commentaires-->
-					<?php //if (!empty($commentos)): ?>
-					<?php //foreach ($commentos as $commentaires): ?>
-					<p class="list"><?php //echo $commentaires['pseudo']; ?></p>
-					<p class="list"><?php //echo nl2br($commentaires['content']); ?></p>
-					<legend class="nameForm"></legend>
+			<!-- <div id="messages"> -->
+				<div id="result"></div>
+				
+					
+					<!-- <legend class="nameForm"></legend> -->
 					
 					<?php //endforeach;?>
-				</div>
-			</div>
+				
+		<!-- 	</div> -->
 			<?php //else: ?>
 			<!--Aucun commentaire trouvé !-->
 			<?php //endif;?>
@@ -97,24 +94,26 @@ $this->layout('layout', ['title' => 'Listposts'])
 <?php else: ?>
 	Aucune recette trouvée !
 <?php endif;?>
-<script type="text/javascript">
+
+<!-- <script type="text/javascript">
 	$("#submitFor").click(function(el) {
 		el.preventDefault();
 		var form_article = $('#add');
 
-		$("#result").show();
+		// $("#result").show();
 		
 		$.ajax({
+			method : 'POST',
 			url :form_article.attr('action'),
 			success: function(html){
-				if(html){
-					$("#messages").append(html);               
-				}
+				
+					$("#result").html(html);               
+				
             //$(".load").hide();
           } 
         });
 	});
-</script>
+</script> -->
 
 <script src="../../assets/Js/modal.js"></script>
 <?php $this->stop('main_content')?>
@@ -124,6 +123,7 @@ $this->layout('layout', ['title' => 'Listposts'])
 <script>
 	$(function() {
 		addform();
+		loadUsers();
 	});
 
 </script>

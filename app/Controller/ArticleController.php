@@ -36,13 +36,13 @@ class ArticleController extends \W\Controller\Controller
 		$listAll = new CommentsModel();
 		$arti = $id;
 		$viewComment = $listAll->findAllcomment($arti);
+		// echo json_encode($viewComment);
 
 		$params = [
 		'added_article' => $art,
 		'commentos' => $viewComment,
 		"success" => $success,
 		"error" => $error,
-
 		];
 				//affiche un template
 		$this->show('article/viewArticle', $params);

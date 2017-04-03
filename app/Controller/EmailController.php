@@ -13,6 +13,7 @@ class EmailController extends Controller
 
         $body = 'Cliquez <a href="http://localhost/blogfinal/public/VeuillezTapezVotreMDP?token=' . $tokenfinal . '">Ici</a> pour reinitialiser votre mot de passe';
          //var_dump($tokenfinal);
+        // $body = $this->generateUrl('psw_newpsw',['token' => $tokenfinal] );
 
 /**
  * This example shows making an SMTP connection with authentication.
@@ -55,6 +56,7 @@ class EmailController extends Controller
 //Read an HTML message body from an external file, convert referenced images to embedded,
         //convert HTML into a basic plain-text alternative body
         //$mail->msgHTML(file_get_contents('contents.html'), dirname(__FILE__));
+        // $mail->Body = '<a href="http://127.0.0.1/' .$body.'">se connecter</a>';
         $mail->Body = $body;
 //Replace the plain text body with one created manually
         $mail->AltBody = 'This is a plain-text message body';

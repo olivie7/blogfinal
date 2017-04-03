@@ -50,3 +50,10 @@ $params =[
 
 
 	action="<?=$this->url('comment_addcomment');?>" 
+
+
+<!-- les commentaires-->
+					<?php //if (!empty($commentos)): ?>
+					<?php //foreach ($commentos as $commentaires): ?>
+					<p class="list"><?php //echo $commentaires['pseudo']; ?></p>
+					<p class="list"><?php //echo nl2br($commentaires['content']); ?></p>

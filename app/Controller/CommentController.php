@@ -1,24 +1,19 @@
 <?php
 namespace Controller;
 
-
-use \W\Controller\Controller;
 use \Model\CommentsModel;
-use \W\Security\AuthorizationModel;
-
-
+use \W\Controller\Controller;
 
 class CommentController extends Controller
 {
     public function addComment()
     {
 
-        $success = false;
-        $error   = [];
-        $post    = [];
+        $success        = false;
+        $error          = [];
+        $post           = [];
         $successComment = "Votre commentaire à été bien ajouté";
-        $errorsText = '';
-       
+        $errorsText     = '';
 
         if (!empty($_POST)) {
             foreach ($_POST as $key => $value) {
@@ -32,30 +27,37 @@ class CommentController extends Controller
             }
             if (count($error) > 0) {
 
-                $errorsText = implode('<br>', $error); 
+                $errorsText = implode('<br>', $error);
 
             } else {
-               // $getUser = new UsersModel();
+                // $getUser = new UsersModel();
                 $infoUsr = $this->getUser();
                 $datas   = [
                     // colonne sql => valeur à insérer
-                'content'    => $post['comment'],
-                'id_article' => $post['id'],
-                'pseudo' => $post['pseudo'],
-                'id_user' => $infoUsr['id'],
+                    'content'    => $post['comment'],
+                    'id_article' => $post['id'],
+                    'pseudo'     => $post['pseudo'],
+                    'id_user'    => $infoUsr['id'],
                 ];
                 $comment1 = new CommentsModel();
                 $comment1->insert($datas);
+                $arti        = $post['id'];
+                $viewComment = $comment1->findAllcomment($arti);
+                $newView     = json_encode($viewComment);
+                $params      = [
+                    'newtab' => $niewview,
+                ];
+
+                $this->redirectToRoute('article_viewArticle',  ["id" => $post['id']]);
                 $success = true;
-                
+
             }
 
         }
-        
-        $this->redirectToRoute('article_viewArticle', ["id" => $post['id']]);
+
+        // $this->redirectToRoute('article_viewArticle', ["id" => $post['id']]);
 
     }
-
 
 /////////////////////////////////////////////////////////////////////////////
 
