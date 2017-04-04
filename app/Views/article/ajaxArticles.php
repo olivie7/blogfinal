@@ -14,7 +14,7 @@
 
 			<div id="result"></div>
 
-				<form method="post" id="add" action="<?php $this->url('article_ajaxArticles');?>" enctype="multipart/form-data">
+				<form method="post" id="add"  enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="title">Titre de l'Article</label>
 						<input class="form-control" type="text" name="title" id="title">
@@ -31,17 +31,13 @@
 					</div>
 
 					<div class="text-center">
-						<input class="btn btn-primary" type="submit" id="submitForm" value="Envoyer le commentaire">
+						<input class="btn btn-primary" type="submit" id="submitForm" value="Envoyer l'Article">
 					</div>
 				</form>
 				
-				
+				<script src="../assets/Js/scriptJS.js"></script>
+
 <?php $this->stop('main_content')?>
-<script src="Js/scriptJS.js"></script>
-<script>
-				$(function() { 
-				addform();
-			});
-</script>
+
 
 

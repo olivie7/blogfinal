@@ -33,14 +33,14 @@ class ArticleController extends \W\Controller\Controller
 		$view   = new ArticlesModel();
 		$art    = $view->find($id);
 		
-		$listAll = new CommentsModel();
-		$arti = $id;
-		$viewComment = $listAll->findAllcomment($arti);
-		// echo json_encode($viewComment);
+		// $listAll = new CommentsModel();
+		// $arti = $id;
+		// $viewComment = $listAll->findAllcomment($arti);
+		// // echo json_encode($viewComment);
 
 		$params = [
 		'added_article' => $art,
-		'commentos' => $viewComment,
+		// 'commentos' => $viewComment,
 		"success" => $success,
 		"error" => $error,
 		];

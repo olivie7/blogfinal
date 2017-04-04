@@ -38,6 +38,7 @@ class CommentsModel extends \W\Model\Model
 		$sth->bindValue(':id_article', $arti, \PDO::PARAM_INT);
 		$sth->execute();
 
-		return $sth->fetchAll();
+		$sth->fetchAll();
+
 	}
 }

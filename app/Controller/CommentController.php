@@ -60,5 +60,6 @@ class CommentController extends Controller
         $comments    = new CommentsModel();
         $viewComment = $comments->findAllcomment($arti);
         echo json_encode($viewComment);
+
     }
 }

@@ -57,3 +57,9 @@ $params =[
 					<?php //foreach ($commentos as $commentaires): ?>
 					<p class="list"><?php //echo $commentaires['pseudo']; ?></p>
 					<p class="list"><?php //echo nl2br($commentaires['content']); ?></p>
+
+
+
+
+
+					action="<?php $this->url('article_ajaxArticles');?>"

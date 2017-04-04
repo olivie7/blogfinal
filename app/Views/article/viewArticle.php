@@ -77,23 +77,23 @@ $this->layout('layout', ['title' => 'Listposts'])
 
 		<div class="row col-xs-12"">
 			<!-- <div id="messages"> -->
-				<div id="result"></div>
+			<div id="result"></div>
 
-					
-					<!-- <legend class="nameForm"></legend> -->
-					
-					<?php //endforeach;?>
-				
-		<!-- 	</div> -->
+
+			<!-- <legend class="nameForm"></legend> -->
+
+			<?php //endforeach;?>
+
+			<!-- 	</div> -->
 			<?php //else: ?>
 			<!--Aucun commentaire trouvé !-->
 			<?php //endif;?>
 		</div>
-	
 
-<?php else: ?>
-	Aucune recette trouvée !
-<?php endif;?>
+
+	<?php else: ?>
+		Aucune recette trouvée !
+	<?php endif;?>
 
 <!-- <script type="text/javascript">
 	$("#submitFor").click(function(el) {
@@ -114,17 +114,26 @@ $this->layout('layout', ['title' => 'Listposts'])
         });
 	});
 </script> -->
+<script src="../../../public/assets/Js/scriptJS.js"></script>
+<script src="../../../public/assets/Js/showComments.js"></script>
 
-<script src="../../assets/Js/modal.js"></script>
-<?php $this->stop('main_content')?>
-
-
-<script src="Js/scriptJS.js"></script>
 <script>
 	$(function() {
 		loadUsers();
 		addform();
+	});
+</script>
+
+<script src="../../assets/Js/modal.js"></script>
+<?php $this->stop('main_content')?>
+<!-- <script src="Js/scriptJS.js"></script>
+<script>
+	$(function() {
+		
+		addform();
 		
 	});
 
-</script>
+</script> -->
+
+
